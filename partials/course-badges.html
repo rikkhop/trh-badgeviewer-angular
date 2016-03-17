@@ -1,0 +1,7 @@
+<div ng-show="badgeList" class="animate-show clearfix">
+
+		<div ng-repeat='badge in badges | courses: currentCourse :true' class='fade-enter col-xs-3'>
+			<img ng-click='$parent.currentBadgeId = badge.id; $parent.showDetails = true; $parent.badgeList = false' ng-src='{{ badge.icon_url }}' class='img-responsive badges pointer'></img>
+		</div>
+
+</div>
