@@ -6,7 +6,7 @@
 			<form autocomplete="off">
 			  <div class="form-group">
 			    <label class="sr-only" for="courseSearch">Search Courses</label>
-			    <input ng-keyup="pageNumber = 0; currentCourse = courseList[0]; pages = (courseList.length / itemsPerPage) | round" ng-model="courseSearchTerm" class="form-control" type="text" id="courseSearch" placeholder="Search courses"></input>
+			    <input ng-keyup="pageNumber = 0; currentCourse = courseList[0]; showDetails = false; badgeList = true; currentCourseIndex = 0; pages = (courseList.length / itemsPerPage) | round" ng-model="courseSearchTerm" class="form-control" type="text" id="courseSearch" placeholder="Search courses"></input>
 			  </div>
 			</form>
 
