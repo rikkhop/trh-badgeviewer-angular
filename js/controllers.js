@@ -5,6 +5,8 @@ portfolioControllers.controller('coursesCtrl', ['$scope', 'BadgeList',
 
 		BadgeList.getBadges(function(res) {
 
+			$scope.badges = res.data.badges;
+
   		$scope.courses = ["Uncategorised"];
 
   		angular.forEach(res.data.badges, function(badge) {
@@ -34,6 +36,8 @@ portfolioControllers.controller('coursesCtrl', ['$scope', 'BadgeList',
  	
 	  $scope.spinner = true;
 
+	  $scope.showDetails = false;
+
 	}]);
 
 portfolioControllers.controller('badgesCtrl', ['$scope', 'BadgeList',
@@ -45,10 +49,10 @@ portfolioControllers.controller('badgesCtrl', ['$scope', 'BadgeList',
 
   	});
 
-	  $scope.showDetails = false;
+  	
 
   	$scope.badgeList = true;
 
-	  $scope.currentBadgeId = 'null';
+  	$scope.currentBadgeId = 'null';
 
 	}]);
