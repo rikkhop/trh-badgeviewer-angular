@@ -6,7 +6,16 @@
 			<form autocomplete="off">
 			  <div class="form-group">
 			    <label class="sr-only" for="courseSearch">Search Courses</label>
-			    <input ng-keyup="pageNumber = 0; currentCourse = courseList[0]; showDetails = false; badgeList = true; currentCourseIndex = 0; pages = (courseList.length / itemsPerPage) | round" ng-model="courseSearchTerm" class="form-control" type="text" id="courseSearch" placeholder="Search courses"></input>
+			    <input ng-keyup="pageNumber = 0; 
+								 			     currentCourse = courseList[0]; 
+											     showDetails = false; 
+											     badgeList = true; 
+											     currentCourseIndex = 0; 
+											     pages = (courseList.length / itemsPerPage) | round" 
+			    
+			    			 ng-model="courseSearchTerm" 
+			    
+			    class="form-control" type="text" id="courseSearch" placeholder="Search courses"></input>
 			  </div>
 			</form>
 
@@ -14,13 +23,28 @@
 				<p class="small-text">Showing courses {{ (pageNumber * itemsPerPage) + 1 }} - {{ pageNumber + 1 < pages ? (pageNumber + 1) * itemsPerPage : courseList.length }} of {{ courseList.length }}</p>
 				
 				<ul class="course-list">
-					<li ng-repeat="course in courseList = (courses | filter: courseSearchTerm) | offset: pageNumber * itemsPerPage | limitTo: itemsPerPage" ng-click="$parent.currentCourseIndex = $parent.courseList.indexOf(course); $parent.currentCourse = courseList[currentCourseIndex]; showDetails = false; badgeList = true" class="list pointer" ng-class="{ selected: course === $parent.currentCourse }">
+					<li ng-repeat="course in courseList = (courses | filter: courseSearchTerm) | offset: pageNumber * itemsPerPage | limitTo: itemsPerPage" 
+							ng-click="$parent.showDetails = false; 
+							$parent.badgeList = true; 
+							$parent.currentCourseIndex = $parent.courseList.indexOf(course); 
+							$parent.currentCourse = courseList[currentCourseIndex]" 
+							ng-class="{ selected: course === $parent.currentCourse }"
+
+							class="list pointer">
 						<p>{{ course }}</p>
 					</li>
 				</ul>
 				
 				<div class="small-text clearfix" ng-show="courseList.length > itemsPerPage">
-					<a ng-show="pageNumber > 0" ng-click="pageNumber = pageNumber - 1; currentCourseIndex = pageNumber * itemsPerPage; currentCourse = courseList[currentCourseIndex]; showDetails = false; badgeList = true" class="pull-left pointer" href="">PREVIOUS</a>
+					<a ng-show="pageNumber > 0" 
+						 ng-click="pageNumber = pageNumber - 1; 
+												currentCourseIndex = pageNumber * itemsPerPage; 
+												currentCourse = courseList[currentCourseIndex]; 
+												showDetails = false; 
+												badgeList = true" 
+
+						 class="pull-left pointer" href="">PREVIOUS</a>
+
 					<a ng-show="pageNumber + 1 < pages" ng-click="pageNumber = pageNumber + 1; currentCourseIndex = pageNumber * itemsPerPage; currentCourse = courseList[currentCourseIndex]; showDetails = false; badgeList = true" class="pull-right pointer" href="">NEXT</a>
 				</div>
 				
@@ -32,18 +56,15 @@
 	<div class="col-sm-6 text-center">
 		
 		<div class="well well-lg">	
-			<div ng-show="badgeList" class="course-toggle clearfix">
-
+			<div ng-show="badgeList">
+				<div class="course-toggle">
 					<a ng-show="currentCourseIndex > 0" ng-click="currentCourseIndex = currentCourseIndex - 1; currentCourse = courseList[currentCourseIndex]; (currentCourseIndex + 1) % itemsPerPage === 0 ? pageNumber = pageNumber - 1 : pageNumber = pageNumber; showDetails = false; badgeList = true" class="toggle-left fa fa-chevron-left fa-2x pointer"></a>
 	
 		
 					<a ng-show="currentCourseIndex + 1 < courseList.length" ng-click="currentCourseIndex = currentCourseIndex + 1; currentCourse = courseList[currentCourseIndex]; currentCourseIndex % itemsPerPage === 0 ? pageNumber = pageNumber + 1 : pageNumber = pageNumber; showDetails = false; badgeList = true" class="toggle-right fa fa-chevron-right fa-2x pointer"></a>
-			
-				<h3>{{ currentCourse }}</h3>
-			</div>
-
-			<div ng-show="badgeList" class="clearfix">
-
+				
+					<h3>{{ currentCourse }}</h3>
+				</div>
 				<course-badges></course-badges>
 
 			</div>

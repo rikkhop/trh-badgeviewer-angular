@@ -1,13 +1,5 @@
 var portfolioDirectives = angular.module('portfolioDirectives', []);
 
-portfolioDirectives.directive('badgeDetails', function() {
-	return {
-			templateUrl: 'partials/badge-details.html',
-			controller: 'badgesCtrl',
-			replace: true,
-		}
-});
-
 portfolioDirectives.directive('badgeViewer', function() {
 	return {
 			templateUrl: 'partials/badge-viewer.html',
@@ -19,6 +11,14 @@ portfolioDirectives.directive('badgeViewer', function() {
 portfolioDirectives.directive('courseBadges', function() {
 	return {
 			templateUrl: 'partials/course-badges.html',
+			controller: 'badgesCtrl',
+			replace: true,
+		}
+});
+
+portfolioDirectives.directive('badgeDetails', function() {
+	return {
+			templateUrl: 'partials/badge-details.html',
 			controller: 'badgesCtrl',
 			replace: true,
 		}

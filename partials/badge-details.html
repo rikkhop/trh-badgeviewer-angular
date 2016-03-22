@@ -1,7 +1,6 @@
 <div ng-repeat='badge in badges | filter: {id: currentBadgeId}:true' class="fade-enter badge-details" ng-show='showDetails'>
 	
-	<span ng-click='showDetails = false; $parent.badgeList = true; $parent.currentBadgeId = null' class="fa fa-times fa-2x pull-right cross pointer"></span>
-
+	<span ng-click='$parent.showDetails = false; $parent.badgeList = true; $parent.currentBadgeId = null' class="fa fa-times fa-2x pull-right cross pointer"></span>
 
 	<a href="{{ badge.courses[0].url }}" target="_blank"><h3>{{ badge.courses[0].title }}</h3></a>
 	<a href="{{ badge.url }}" target="_blank"><p>{{ badge.name }}</p></a>

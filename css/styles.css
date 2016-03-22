@@ -7442,7 +7442,7 @@ textarea {
 
 .badge-details {
   position: relative;
-  padding: 30px 30px;
+  padding: 0 30px;
 }
 
 .badge-viewer {
@@ -7473,7 +7473,7 @@ textarea {
 
 .course-toggle h3,
 .badge-details h3 {
-  margin: 0;
+  margin: 0 0 25px 0;
 }
 
 .toggle-left {

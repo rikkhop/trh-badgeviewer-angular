@@ -36,7 +36,6 @@ portfolioControllers.controller('coursesCtrl', ['$scope', 'BadgeList',
  	
 	  $scope.spinner = true;
 
-	  $scope.showDetails = false;
 
 	}]);
 
@@ -49,7 +48,7 @@ portfolioControllers.controller('badgesCtrl', ['$scope', 'BadgeList',
 
   	});
 
-  	
+  	$scope.showDetails = false;
 
   	$scope.badgeList = true;
 
